@@ -60,3 +60,17 @@ pipeline:
                                         limits:
                                             memory: 1Gi
                                             cpu: "1"
+                          - step:
+                                type: BuildAndPushDockerRegistry
+                                name: pushToDockerHub
+                                identifier: pushToDockerHub
+                                spec:
+                                    connectorRef: account.bootcampdockerhub
+                                    repo: nikpap/payment-service
+                                    tags:
+                                        - gautam143751-latest
+                                    dockerfile: /harness/payment-service/Dockerfile
+                                    resources:
+                                        limits:
+                                            memory: 1Gi
+                                            cpu: "1"
